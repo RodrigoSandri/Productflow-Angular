@@ -26,11 +26,15 @@ th {
 }
 
 button {
-  margin-right: 8px;
   padding: 7px 10px;
   border: 0;
   border-radius: 6px;
   background: #4b5563;
   color: #fff;
   cursor: pointer;
+}
+
+.acoes{
+  display: flex;
+  gap: 8px;
 }
