@@ -18,11 +18,11 @@ export class ProdutoService {
     return this.http.post<Produto>(this.apiurl, produto);
   }
 
-  atualizar(produto: Produto, id: number): Observable<Produto> {
+  atualizar(produto: Produto, id: number | string): Observable<Produto> {
     return this.http.put<Produto>(`${this.apiurl}/${id}`, produto);
   }
 
-  excluir(id: number): Observable<void> {
+  excluir(id: number | string): Observable<void> {
     return this.http.delete<void>(`${this.apiurl}/${id}`);
   }
 }

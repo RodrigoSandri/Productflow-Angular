@@ -29,8 +29,8 @@
                     <td> {{ produto.preco | currency: 'BRL'}}</td>
 
              <td class="acoes">
-                    <button type="button">Editar</button>
-                    <button type="button">Excluir</button>
+                    <button type="button"(click)="editar(produto)">Editar</button>
+                    <button type="button"(click)="excluir(produto)">Excluir</button>
                 </td>
                     </tr>
                 }

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { Produto } from '../../models/produto';
 import { ProdutoService } from '../../services/produto.service';
@@ -11,6 +11,7 @@ import { ProdutoService } from '../../services/produto.service';
 })
 export class ProdutoList {
   private readonly produtosService = inject(ProdutoService);
+  private readonly cdr = inject(ChangeDetectorRef);
 
   produtos: Produto[] = [];
   carregando: boolean = false;
@@ -26,12 +27,37 @@ export class ProdutoList {
       next: (dados: Produto[]) => {
         this.produtos = dados;
         this.carregando = false;
+        this.cdr.detectChanges();
       },
 
       error: (erro: any) => {
         console.error('Erro ao carregar produtos:', erro);
         this.carregando = false;
+        this.cdr.detectChanges();
       }
+    });
+  }
+
+  editar(produto: Produto): void {
+    if (!produto.id) {
+      return;
+    }
+
+    this.produtosService.atualizar(produto, produto.id).subscribe({
+      next: () => this.carregarProdutos(),
+      error: (erro) => console.error('Erro ao atualizar', erro),
+    });
+    
+  }
+
+  excluir(produto: Produto): void {
+    if (!produto.id) {
+      return;
+    }
+
+    this.produtosService.excluir(produto.id).subscribe({
+      next: () => this.carregarProdutos(),
+      error: (erro) => console.error('Erro ao excluir', erro),
     });
   }
 }

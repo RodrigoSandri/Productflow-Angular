@@ -1,16 +1,17 @@
 {
   "produtos": [
     {
-      "id": 1,
-      "nome": "Notebook Dell",
-      "descricao": "Notebook Dell Inspiron 15 3000, Intel Core i5-1136G7, 8GB RAM, 256GB SSD",
-      "preco": 3500.00
-    },
-    {
-      "id": 2,
+      "id": "2",
       "nome": "Smartphone Samsung Galaxy S21",
       "descricao": "Smartphone Samsung Galaxy S21, Tela 6.2\" Dynamic AMOLED, Exynos 2100 (Brasil) / Snapdragon 888 (alguns países), Armazenamento: 128GB ou 256GB, Câmeras traseiras: 12MP principal, 64MP teleobjetiva, 12MP ultrawide",
-      "preco": 4500.00
+      "preco": 4500
+    },
+    {
+      "nome": "Nome do produto ",
+      "descricao": "",
+      "preco": 42232142,
+      "id": "mZsBuCpx4_I"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
